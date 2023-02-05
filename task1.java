@@ -13,7 +13,7 @@ public class task1 {
 
         LinkedList<String> intList = new LinkedList<String>();
         Map<Integer, LinkedList<String>> listMap = new HashMap<Integer, LinkedList<String>>();
-        int key=0;
+        int key = 0;
 
         while (true) {
             Scanner in = new Scanner(System.in);
@@ -21,7 +21,9 @@ public class task1 {
             String str = in.nextLine();
 
             if (str.equals("add")) {
+
                 key++;
+                intList.clear();
                 System.out.print("Введите фамилию контакта: ");
                 String sekond_name = in.nextLine();
                 System.out.print("Введите Имя контакта: ");
@@ -48,25 +50,30 @@ public class task1 {
                     }
                 }
 
-                listMap.putIfAbsent(key, intList);
+
+
+                System.out.printf("key=%d",key);                
+                System.out.println(intList);
+                listMap.put(key, intList);
+
                 System.out.println(listMap);
-            String abon = listMap.toString();  
-            try (FileWriter writer = new FileWriter("phoneBook.txt", true)) {
-                writer.append(abon);                
-                writer.append('\n');
-
-                writer.flush();
-            } catch (Exception e) {
-
-                System.out.println("что-то не так");
             }
+
             if (str.equals("stop")) {
+                intList.clear();
                 break;
-            }   
-                            
             }
-            
+        }
+        String abon = listMap.toString();
+        System.out.printf("abon %s", abon);
+        try (FileWriter writer = new FileWriter("phoneBook.txt", true)) {
+            writer.append(abon);
+            writer.append('\n');
 
+            writer.flush();
+        } catch (Exception e) {
+
+            System.out.println("что-то не так");
         }
     }
 }

@@ -27,9 +27,9 @@ public class task3 {
         ArrayList<Integer> str8 = new ArrayList<Integer>(Arrays.asList(a));
         System.out.println(str8);
         Scanner scan = new Scanner(System.in);
-        System.out.println("Введите позицию столбца (1-8): ");
-        int x=scan.nextInt();
         System.out.println("Введите позицию строки (1-8): ");
+        int x=scan.nextInt();
+        System.out.println("Введите позицию столбца (1-8): ");
         int y=scan.nextInt();        
         System.out.println(x);
         System.out.println(y);

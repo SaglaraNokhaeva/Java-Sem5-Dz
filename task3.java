@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 
 // На шахматной доске расставить 8 ферзей так, чтобы они не били друг друга. 
@@ -25,6 +26,15 @@ public class task3 {
         System.out.println(str7);
         ArrayList<Integer> str8 = new ArrayList<Integer>(Arrays.asList(a));
         System.out.println(str8);
-    }
-    
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите позицию столбца (1-8): ");
+        int x=scan.nextInt();
+        System.out.println("Введите позицию строки (1-8): ");
+        int y=scan.nextInt();        
+        System.out.println(x);
+        System.out.println(y);
+
+
+        scan.close();
+    }     
 }

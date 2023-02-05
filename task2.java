@@ -34,14 +34,13 @@ public class task2 {
         // Сплитуем по запятой
         String[] array = spisok.split("\\, | ");
         int razmernost = array.length;
-        System.out.println(razmernost);
-        // Создаём лист с именами
+               // Создаём лист с именами
         String[] array_name = new String[razmernost / 2];
         int j = 0;
         for (int i = 0; i < razmernost / 2; i++) {
             array_name[i] = array[j];
             j += 2;
-            System.out.println(array_name[i]);
+            // System.out.println(array_name[i]);
         }
         ArrayList<String> strList = new ArrayList<String>();
         for (int i = 0; i < array_name.length; i++) {
@@ -51,17 +50,26 @@ public class task2 {
         strList.sort(Comparator.naturalOrder());
         System.out.print("The ArrayList is: " + strList);
         System.out.println();
+        // Сортировка по убыванию
         int count=1;
+        int max=1;
         for (int i = 0; i < razmernost / 2-1; i++) {
             
             if (strList.get(i).equals(strList.get(i+1))){
-                count++;                
+                count++;                              
             }
             else{
-                System.out.printf("%s = %d; \n",strList.get(i),count);
+                if (count>max){
+                    max=count;
+                    System.out.println("The count is: " +count); 
+                    System.out.println("The max is: " +max);
+                
+                }System.out.printf("%s = %d; \n",strList.get(i),count);
                 count=1;
             }           
         }
+        
         System.out.printf("%s = %d; \n",strList.get(razmernost / 2-1),count);
+        System.out.println(max);
     }
 }

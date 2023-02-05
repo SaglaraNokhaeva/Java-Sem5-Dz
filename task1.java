@@ -19,6 +19,27 @@ public class task1 {
         String sekond_name = in.nextLine();
         System.out.print("Введите Имя контакта: ");
         String first_name = in.nextLine();
+        
+        
+        while (true) {
+
+            System.out.println("Введите команду:'ok' для добавления контакта;'+' ввода ещё одного номера: ");
+            String str = in.nextLine();
+            if (str.equals("ok"))
+
+                break;
+            
+            if (str.equals("+")) {
+                stack.push(Calcul());
+            }
+            
+            if (str.equals("cancel")) {
+                stack.pop();
+                System.out.println(stack.peek());
+            }             
+        }
+                  
+        
         System.out.print("Введите номер телефона: ");
         String phone = in.nextLine();
 

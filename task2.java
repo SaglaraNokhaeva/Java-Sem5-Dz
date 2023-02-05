@@ -50,8 +50,8 @@ public class task2 {
         strList.sort(Comparator.naturalOrder());
         System.out.print("The ArrayList is: " + strList);
         System.out.println();
+        
         // Сортировка по убыванию
-
         while (!strList.isEmpty()){
         int count = 1;
         int max = 1;
@@ -68,19 +68,16 @@ public class task2 {
                     position = i;
                     // System.out.println("The count is: " + count);
                     // System.out.println("The max is: " + max);
-
                 }
                 // System.out.printf("%s = %d; \n", strList.get(i), count);
                 count = 1;
             }
         }
-
         // System.out.printf("%s = %d; \n",strList.get(razmernost / 2-1),count);
         System.out.printf("%s - %d; \n", max_name, max);
         for (int i = 0; i < max; i++)
             strList.remove(position - i);
         // System.out.print("The ArrayList is: " + strList);
     }
-
     }
 }

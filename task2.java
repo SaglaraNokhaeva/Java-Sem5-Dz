@@ -30,11 +30,11 @@ import java.util.Comparator;
 
 public class task2 {
     public static void main(String[] args) {
-        String spisok = ("Иван Иванов, Светлана Петрова, Кристина Белова, Анна Мусина, Анна Крутова, Иван Юрин, Петр Лыков, Павел Чернов, Петр Чернышов, Мария Федорова, Марина Светлова, Мария Савина, Мария Рыкова, Марина Лугова, Анна Владимирова, Иван Мечников, Петр Петин, Иван Ежов, Светлана Рыжова");
+        String spisok = ("Иван Иванов, Светлана Петрова, Кристина Белова, Анна Мусина, Анна Крутова, Иван Юрин, Петр Лыков, Павел Чернов, Петр Чернышов, Мария Федорова, Марина Светлова, Мария Савина, Мария Рыкова, Марина Лугова, Анна Владимирова, Иван Мечников, Петр Петин, Иван Ежов");
         // Сплитуем по запятой
         String[] array = spisok.split("\\, | ");
         int razmernost = array.length;
-               // Создаём лист с именами
+        // Создаём лист с именами
         String[] array_name = new String[razmernost / 2];
         int j = 0;
         for (int i = 0; i < razmernost / 2; i++) {
@@ -51,25 +51,36 @@ public class task2 {
         System.out.print("The ArrayList is: " + strList);
         System.out.println();
         // Сортировка по убыванию
-        int count=1;
-        int max=1;
-        for (int i = 0; i < razmernost / 2-1; i++) {
-            
-            if (strList.get(i).equals(strList.get(i+1))){
-                count++;                              
+
+        while (!strList.isEmpty()){
+        int count = 1;
+        int max = 1;
+        int position = 0;
+        String max_name = strList.get(0);
+        for (int i = 0; i < strList.size()-1; i++) {
+
+            if (strList.get(i).equals(strList.get(i + 1))) {
+                count++;
+            } else {
+                if (count > max) {
+                    max = count;
+                    max_name = strList.get(i);
+                    position = i;
+                    // System.out.println("The count is: " + count);
+                    // System.out.println("The max is: " + max);
+
+                }
+                // System.out.printf("%s = %d; \n", strList.get(i), count);
+                count = 1;
             }
-            else{
-                if (count>max){
-                    max=count;
-                    System.out.println("The count is: " +count); 
-                    System.out.println("The max is: " +max);
-                
-                }System.out.printf("%s = %d; \n",strList.get(i),count);
-                count=1;
-            }           
         }
-        
-        System.out.printf("%s = %d; \n",strList.get(razmernost / 2-1),count);
-        System.out.println(max);
+
+        // System.out.printf("%s = %d; \n",strList.get(razmernost / 2-1),count);
+        System.out.printf("%s - %d; \n", max_name, max);
+        for (int i = 0; i < max; i++)
+            strList.remove(position - i);
+        // System.out.print("The ArrayList is: " + strList);
+    }
+
     }
 }

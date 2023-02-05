@@ -1,46 +1,45 @@
 // Реализуйте структуру телефонной книги с помощью HashMap, учитывая, что 1 человек может иметь несколько телефонов.
 
+import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.Scanner;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
 
 public class task1 {
-    
+
     public static void main(String[] args) {
-        // LinkedList <String> contact = new LinkedList<>();
-        Map<Integer, LinkedList> db = new HashMap<>();
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Введите: 1, - добавление контакта, 2 - печать тел. книги");
-        Integer act = scan.nextInt();
-        if (act==1){            
-            System.out.println("Введите фамилию контакта: ");
-            String sekond_name=scan.nextLine();
-            System.out.println("Введите Имя контакта: ");
-            String first_name=scan.nextLine();
-            int i=0;
-            Map.put(i,[sekond_name,first_name]);
 
-            
+        LinkedList<String> intList = new LinkedList<String>();
+        Map<Integer, LinkedList<String>> listMap = new HashMap<Integer, LinkedList<String>>();
 
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите фамилию контакта: ");
+        String sekond_name = in.nextLine();
+        System.out.print("Введите Имя контакта: ");
+        String first_name = in.nextLine();
+        System.out.print("Введите номер телефона: ");
+        String phone = in.nextLine();
 
+        intList.add(sekond_name);
+        intList.add(first_name);
+        intList.add(phone);
+        listMap.put(1, intList);
+        System.out.println(listMap);
+        String abon = listMap.toString();
 
+        try (FileWriter writer = new FileWriter("phoneBook.txt", true)) {
+            writer.append(abon);
+            // writer.write(text);
+            writer.append('\n');
 
-        }
+            writer.flush();
+        } catch (Exception e) {
 
-        if (act==2){
-
-        }
-        
-        
-
-        for (int str : db.keySet()) {
-
-            if (db.get(str).equals(sekond_name)) {
-                System.out.printf("%s %s \n", str, db.get(str));
-            }
+            System.out.println("что-то не так");
 
         }
+
     }
-
 }

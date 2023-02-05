@@ -11,7 +11,7 @@ public class task1 {
 
     public static void main(String[] args) {
 
-        LinkedList<String> strList = new LinkedList<String>();
+        LinkedList<String> strList;
         Map <Integer, LinkedList<String>> listMap = new HashMap<Integer, LinkedList<String>>();
         int k = -1;
 
@@ -23,7 +23,7 @@ public class task1 {
             if (str.equals("add")) {
 
                 k++;
-                strList.clear();
+                strList = new LinkedList<>();
                 System.out.print("Введите фамилию контакта: ");
                 String sekond_name = in.nextLine();
                 System.out.print("Введите Имя контакта: ");

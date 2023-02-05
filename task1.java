@@ -11,9 +11,9 @@ public class task1 {
 
     public static void main(String[] args) {
 
-        LinkedList<String> intList = new LinkedList<String>();
-        Map<Integer, LinkedList<String>> listMap = new HashMap<Integer, LinkedList<String>>();
-        int key = 0;
+        LinkedList<String> strList = new LinkedList<String>();
+        Map <Integer, LinkedList<String>> listMap = new HashMap<Integer, LinkedList<String>>();
+        int k = -1;
 
         while (true) {
             Scanner in = new Scanner(System.in);
@@ -22,17 +22,17 @@ public class task1 {
 
             if (str.equals("add")) {
 
-                key++;
-                intList.clear();
+                k++;
+                strList.clear();
                 System.out.print("Введите фамилию контакта: ");
                 String sekond_name = in.nextLine();
                 System.out.print("Введите Имя контакта: ");
                 String first_name = in.nextLine();
                 System.out.print("Введите номер телефона: ");
                 String phone = in.nextLine();
-                intList.add(sekond_name);
-                intList.add(first_name);
-                intList.add(phone);
+                strList.add(sekond_name);
+                strList.add(first_name);
+                strList.add(phone);
 
                 // добавление нескольких номеров, если они имеются
                 while (true) {
@@ -43,7 +43,7 @@ public class task1 {
                     if (str.equals("+")) {
                         System.out.print("Введите номер телефона: ");
                         phone = in.nextLine();
-                        intList.add(phone);
+                        strList.add(phone);
                     }
                     if (str.equals("ok")) {
                         break;
@@ -51,28 +51,28 @@ public class task1 {
                 }
 
 
+//запись в listMap
+                System.out.printf("k=%d \n",k);                
+                System.out.println(strList);
 
-                System.out.printf("key=%d",key);                
-                System.out.println(intList);
-                listMap.put(key, intList);
+                listMap.put(k, strList);
 
                 System.out.println(listMap);
             }
 
             if (str.equals("stop")) {
-                intList.clear();
+                // strList.clear();
                 break;
             }
         }
+        //Запись в файл
         String abon = listMap.toString();
-        System.out.printf("abon %s", abon);
+        System.out.printf("abon =%s", abon);
         try (FileWriter writer = new FileWriter("phoneBook.txt", true)) {
             writer.append(abon);
             writer.append('\n');
-
             writer.flush();
         } catch (Exception e) {
-
             System.out.println("что-то не так");
         }
     }

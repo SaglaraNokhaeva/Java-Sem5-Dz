@@ -27,13 +27,31 @@ public class task3 {
         ArrayList<Integer> str8 = new ArrayList<Integer>(Arrays.asList(a));
         System.out.println(str8);
         Scanner scan = new Scanner(System.in);
-        System.out.println("Введите позицию строки (1-8): ");
-        int x=scan.nextInt();
-        System.out.println("Введите позицию столбца (1-8): ");
-        int y=scan.nextInt();        
-        System.out.println(x);
-        System.out.println(y);
+        // System.out.println("Введите позицию строки (1-8): ");
+        // int x=scan.nextInt();
+        // System.out.println("Введите позицию столбца (1-8): ");
+        // int y=scan.nextInt();        
+        // System.out.println(x);
+        // System.out.println(y);
+        //1-й
+        ArrayList<Integer> xxx = new ArrayList<Integer>(Arrays.asList(a));
+        ArrayList<Integer> yyy = new ArrayList<Integer>(Arrays.asList(a));
+        xxx.set(0, 1);
+        yyy.set(0, 1);
+        System.out.println(xxx);
+        System.out.println(yyy);
         
+        str1.set(yyy.indexOf(1), 1);
+        System.out.println(str1);
+
+        for (int i = 0; i<8;i++){
+            if()
+        }
+        str2.set(yyy.indexOf(1), 1);
+        // for (int i=0;i<8;i++){
+        //     if ()
+        //     str2.add(i, null);
+        // }
 
 
         scan.close();

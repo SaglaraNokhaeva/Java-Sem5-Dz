@@ -33,6 +33,7 @@ public class task3 {
         int y=scan.nextInt();        
         System.out.println(x);
         System.out.println(y);
+        
 
 
         scan.close();

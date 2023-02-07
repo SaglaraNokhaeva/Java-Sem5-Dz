@@ -16,7 +16,7 @@ public class task3 {
             }
             System.out.println();//перенос строки ради визуального сохранения табличной формы
         }
-       
+        System.out.println();
         int x[]=new int[9];
         int y[]=new int[9];
         for (int k=0;k<8;k++){
@@ -32,7 +32,9 @@ public class task3 {
                     }
                 }
             }
-        }
+        } 
+        // if (k<7)
+       
         for (int i = 0; i < 8; i++) {  //идём по строкам
             for (int j = 0; j < 8; j++) {//идём по столбцам
                 System.out.print(" " + twoDimArray[i][j] + " "); //вывод элемента
